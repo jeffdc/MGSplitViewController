@@ -1112,6 +1112,20 @@ typedef struct BounceContext_tag {
 	}
 }
 
+- (BOOL)allowsSwipingDivider
+{
+	if ([self allowsDraggingDivider] && _dividerView.allowsSwiping) {
+		return _dividerView.allowsSwiping;
+	}
+	
+	return NO;
+}
+
+
+- (void)setAllowsSwipingDivider:(BOOL)flag
+{
+	_dividerView.allowsSwiping = flag;
+}
 
 - (MGSplitViewDividerStyle)dividerStyle
 {
@@ -1189,6 +1203,7 @@ typedef struct BounceContext_tag {
 @synthesize splitPosition;
 @synthesize splitWidth;
 @synthesize allowsDraggingDivider;
+@synthesize allowsSwipingDivider;
 @synthesize dividerStyle;
 
 
